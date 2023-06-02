@@ -12,15 +12,15 @@ objectives:
 keypoints:
 - SAM and Rucio are data handling systems used by the DUNE collaboration to retrieve data.
 - Staging is a necessary step to make sure files are on disk in dCache (as opposed to only on tape).
-- Xrootd allows user to stream data file. 
+- XRootD allows users to stream data files. 
 - The Unix Product Setup (UPS) is a tool to ensure consistency between different software versions and reproducibility.
 - The multi-repository build (mrb) tool allows code modification in multiple repositories, which is relevant for a large project like LArSoft with different cases (end user and developers) demanding consistency between the builds.
-- CVMFS distributes software and related files without installing them on the target computer (using a VM, Virtual Machine).
+- CVMFS distributes software and related files without installing them on the target computer (using a VM or Virtual Machine).
 ---
 
 #### Session Video
 
-The session will be captured on video a placed here after the workshop for asynchronous study.
+The session will be captured on video and placed here after the workshop for asynchronous study.
 
 <!-- The session was captured for your asynchronous review.
 The session was video captured for your asynchronous review. The video from the full two day training in May 2022 is provided here as a reference.
@@ -44,7 +44,7 @@ Quiz blocks are added in this lesson and should be administered in the closing m
 DUNE data is stored around the world and the storage elements are not always organized in a way that they can be easily inspected. For this purpose we use the SAM web client.
 
 ### What is SAM?  
-Sequential Access with Metadata (SAM) is a data handling system developed at Fermilab.  It is designed to tracklocations of files and other file metadata.
+Sequential Access with Metadata (SAM) is a data handling system developed at Fermilab.  It is designed to track locations of files and other file metadata.
 
 This lecture will show you how to access data files that have been defined to the DUNE Data Catalog. Execute the following commands after logging in to the DUNE interactive node, and sourcing the main dune setups.
 
@@ -187,7 +187,7 @@ This sourcing defines the UPS `setup` command. Now to get DUNE's LArSoft-based s
 
 
 `dunesw`: product name <br>
-`$DUNESW_VERSION` version tag <br>
+`$DUNESW_VERSION` version tag (in our case, see Exercise 3) <br>
 `e20:prof` are "qualifiers". Qualifiers are separated with colons and may be specified in any order. The "e20" qualifier refers to a specific version of the gcc compiler suite, and "prof" means select the installed product that has been compiled with optimizations turned on. An alternative to "prof" is the "debug" qualifier. All builds of LArSoft and dunesw are compiled with debug symbols turned on, but the "debug" builds are made with optimizations turned off. Both kinds of software can be debugged, but it is easier to debug the debug builds (code executes in the proper order and variables aren't optimized away so they can be inspected).
 
 Another specifier of a product install is the "flavor". This refers to the operating system the program was compiled for. These days we only support SL7, but in the past we used to also support SL6 and various versions of macOS. The flavor is automatically selected when you set up a product using setup (unless you override it which is usually a bad idea). Some product are "unflavored" because they do not contain anything that depends on the operating system. Examples are products that only contain data files or text files.
@@ -195,8 +195,8 @@ Another specifier of a product install is the "flavor". This refers to the opera
 Setting up a UPS product defines many environment variables. Most products have an environment variable of the form `<productname>_DIR`, where `<productname>` is the name of the UPS product in all capital letters. This is the top-level directory and can be used when searching for installed source code or fcl files for example. `<productname>_FQ_DIR` is the one that specifies a particular qualifier and flavor.
 
 > ## Exercise 3
-> * show all the versions of dunesw that are currently available by using the "ups list -aK+ dunesw" command
-> * pick one version and substitute that for DUNESW_VERSION above and set up dunesw
+> * Show all the versions of dunesw that are currently available by using the "ups list -aK+ dunesw" command
+> * Pick one version and substitute that for DUNESW_VERSION above and set up dunesw
 {: .challenge}
 
 Many products modify the following search path variables, prepending their pieces when set up. These search paths are needed by _art_ jobs.
@@ -213,7 +213,7 @@ The other paths are needed by _art_ for finding plug-in libraries, fcl files, an
 `FHICL_FILE_PATH`  
 `FW_SEARCH_PATH`  
 
-Also the PYTHONPATH describes where Python modules will be loaded from.
+Also, the PYTHONPATH describes where Python modules will be loaded from.
 
 ### UPS basic commands
 
@@ -224,7 +224,7 @@ Also the PYTHONPATH describes where Python modules will be loaded from.
 | `ups depend dunesw v09_48_01d00 -q e20:prof` | Displays the dependencies for this version of dunesw           |
 
 > ## Exercise 4
-> * show all the dependencies of dunesw by using "ups depend dunesw $DUNESW_VERSION -q e20:prof"
+> * Show all the dependencies of dunesw by using "ups depend dunesw $DUNESW_VERSION -q e20:prof"
 {: .challenge}
 
 >## UPS Documentation Links
@@ -239,7 +239,7 @@ Early on, the LArSoft team chose git and cmake as the software version manager a
 
 Ideally, we would like to only have to recompile a fraction of the software stack when we make a change. The granularity of the build in LArSoft and other art-based projects is the repository. So LArSoft and DUNE have divided code up into multiple repositories (DUNE ought to divide more than it has, but there are a few repositories already with different purposes). Sometimes one needs to modify code in multiple repositories at the same time for a particular project. This is where mrb comes in. 
 
-**mrb** stands for "multi-repository build". mrb has features for cloning git repositories, setting up build and local products environments, building code, and checking for consistency (i.e. there are not two modules with the same name or two fcl files with the same name). mrb builds UPS products -- when it installs the built code into the localProducts directory, it also makes the necessasry UPS table files and .version directories. mrb also has a tool for making a tarball of a build product for distribution to the grid. The software build example later in this tutorial exercises some of the features of mrb. 
+**mrb** stands for "multi-repository build". mrb has features for cloning git repositories, setting up build and local products environments, building code, and checking for consistency (i.e. there are not two modules with the same name or two fcl files with the same name). mrb builds UPS products -- when it installs the built code into the localProducts directory, it also makes the necessary UPS table files and .version directories. mrb also has a tool for making a tarball of a build product for distribution to the grid. The software build example later in this tutorial exercises some of the features of mrb. 
 
 | Command                  | Action                                              |
 |--------------------------|-----------------------------------------------------|
