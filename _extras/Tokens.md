@@ -12,4 +12,4 @@ title: Tokens
 
 {% include al9_token.md %}
 
-Check your token `httogendecode`
+Check your token `httokendecode`
