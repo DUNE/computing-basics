@@ -40,7 +40,7 @@ title: Lots of site links
 
 - [FAIR standard](https://www.go-fair.org/fair-principles/) (Findable, Accesible, Intepretable and Reproducible) 
 - [DUNE Physics Analysis Review Procedures](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=28237&filename=physics_analysis_review_v7.pdf) 
-- [General metacat documentation](https://metacat.readthedocs.io/en/latest/)
+- [General metacat documentation](https://fermitools.github.io/metacat)
 - [DUNE metacat examples](https://dune.github.io/DataCatalogDocs/index.html)
 - [dunecatalog](https://dune-tech.rice.edu/dunecatalog/) and log in with your services password.
 - [Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE%20Catalog%20Presentation.pdf&version=2)

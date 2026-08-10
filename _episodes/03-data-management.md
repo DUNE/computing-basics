@@ -360,6 +360,7 @@ export MYQUERY2="$MYBIGQUERY ordered skip 1000 limit 1000"
 export MYQUERY3="$MYBIGQUERY ordered skip 2000 limit 1000"
 ..etc.
 ~~~
+{: .language-bash}
 
 - the `ordered` assures that your query is reproducible 
 

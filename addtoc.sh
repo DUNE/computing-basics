@@ -2,6 +2,7 @@
 python code/tocgen.py setup.md
 python code/tocgen.py _episodes/01-introduction.md
 python code/tocgen.py _episodes/01.5-documentation.md
+python code/tocgen.py _episodes/01.7-InteractiveComputingResources.md
 python code/tocgen.py _episodes/02-storage-spaces.md
 python code/tocgen.py _episodes/02.3-cvmfs.md
 python code/tocgen.py _episodes/03-data-management.md
