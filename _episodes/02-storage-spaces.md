@@ -176,13 +176,13 @@ See [CVMFS]({{ site.baseurl }}/02.3-cvmfs) for more information.
 > > quota -u -m -s
 > > ~~~
 > > {: ..language-bash}
-> > 
+> {: .solution}
 > > ## Your home area at CERN
 > > ~~~
 > > fs listquota
 > > ~~~
 > > {: ..language-bash}
-> > 
+> {: .solution}
 > > ## The /app/ and /data/ areas at FNAL
 > > 
 > > These use the Ceph file system which has directory quotas instead of user quotas.
@@ -195,7 +195,7 @@ See [CVMFS]({{ site.baseurl }}/02.3-cvmfs) for more information.
 > > getfattr -n ceph.quota.max_bytes /exp/dune/data/users/$USER
 > > ~~~
 > > {: ..language-bash}
-> > 
+> {: .solution} 
 > > ## EOS at CERN
 > > 
 > > ~~~
@@ -203,10 +203,11 @@ See [CVMFS]({{ site.baseurl }}/02.3-cvmfs) for more information.
 > > eos quota
 > > ~~~
 > > {: ..language-bash}
-> > 
+> {: .solution}
 > > ## Fermilab dCache
 > > 
-> > Go to [https://fndca.fnal.gov/cgi-bin/quota.py](https://fndca.fnal.gov/cgi-bin/quota.py) - you need to be on the Fermilab VPN - otherwise it sits there not loading. 
+> > To see your persistent usage visit [here](https://fifemon.fnal.gov/monitor/d/000000175/dcache-persistent-usage-by-vo?orgId=1&var-VO=dune) (bottom left) or
+> > go to [https://fndca.fnal.gov/cgi-bin/quota.py](https://fndca.fnal.gov/cgi-bin/quota.py) - you need to be on the Fermilab VPN - otherwise it sits there not loading. 
 > > 
 > {: .solution}
 {: .challenge}
