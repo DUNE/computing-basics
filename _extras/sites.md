@@ -27,9 +27,9 @@ title: Lots of site links
 - [Understanding Storage Volumes](https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Understanding_storage_volumes)
 - [persistent usage](https://fifemon.fnal.gov/monitor/d/000000175/dcache-persistent-usage-by-vo?orgId=1&var-VO=dune) (bottom left):
 - [DUNE Rucio Storage](https://dune-os.monitoring.edi.scotgrid.ac.uk/app/dashboards#/view/70a0baa0-8a3b-11ef-9dc8-5d2d451cf204?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1d,to:now))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),timeRestore:!t,title:'Rucio%20Overview',viewMode:view))
-- [ifdh commands](https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands)
+- [ifdh commands](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
 - [XRootD Man pages](https://xrootd.slac.stanford.edu/docs.html)
-- [ifdh commands (redmine)](https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands)
+- [ifdh commands (redmine)](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
 - [Understanding storage volumes (redmine)](https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Understanding_storage_volumes)
 - [How DUNE storage works:](https://dune-data.fnal.gov/tutorial/howitworks.pdf)
 - [cvmfs](https://wiki.dunescience.org/wiki/DUNE_Computing/Access_files_in_CVMFS)
@@ -57,7 +57,7 @@ title: Lots of site links
 - [Pre-2024 Official dataset definitions: dune-data.fnal.gov](https://dune-data.fnal.gov)
 - [mrb reference guide (redmine)](https://cdcvs.fnal.gov/redmine/projects/mrb/wiki/MrbRefereceGuide)
 - [CVMFS on DUNE wiki: Access files in CVMFS](https://wiki.dunescience.org/wiki/DUNE_Computing/Access_files_in_CVMFS)
-- [Ifdh_commands](https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands)
+- [Ifdh_commands](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
 - [xrootd-man-pages](https://xrootd.slac.stanford.edu/docs.html)
 - [Understanding-storage](https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Understanding_storage_volumes)
 - [useful-samweb](https://wiki.dunescience.org/wiki/)Useful_ProtoDUNE_samweb_parameters

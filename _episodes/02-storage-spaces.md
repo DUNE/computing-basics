@@ -271,7 +271,8 @@ df -h
 {: .challenge}
 
 
-## Commands and tools
+## Global data access tools
+
 This section will teach you the main tools and commands to display storage information and access data.
 
 ### authentication for dCache
@@ -320,7 +321,7 @@ Note, if the destination for an `ifdh cp` command is a directory instead of file
 
 Prior to attempting the first exercise, please take a look at the full list of IFDH commands, to be able to complete the exercise. In particular, `cp`, `rmdir`,
 
-**Resource:** [ifdh commands](https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands)
+**Resource:** [ifdh commands](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
 
 
 > ## Exercise 3
@@ -544,7 +545,7 @@ See the next episode on [data management]({{ site.baseurl }}/03-data-management)
 > </ol>
 >
 > > ## Answer
-> > The correct answer is C - Open it for streaming via xrootd. Use `pnfs2xrootd` to generate the streaming path. 
+> > The correct answer is C - Open it for streaming via xrootd. Use `pnfs2xrootd`  or `metacat/rucio` to generate the streaming path. 
 > > {: .output}
 > > Comment here
 > {: .solution}
@@ -552,9 +553,9 @@ See the next episode on [data management]({{ site.baseurl }}/03-data-management)
 
 ## Useful links to bookmark
 
-* [ifdh commands (redmine)](https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands)
-* [Understanding storage volumes (redmine)](https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Understanding_storage_volumes)
-* How DUNE storage works: [pdf](https://dune-data.fnal.gov/tutorial/howitworks.pdf)
+* [ifdh commands (redmine)](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
+* [Understanding storage volumes (redmine)](https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands)
+<!-- * How DUNE storage works: [pdf](https://dune-data.fnal.gov/tutorial/howitworks.pdf) -->
 
 ---
 

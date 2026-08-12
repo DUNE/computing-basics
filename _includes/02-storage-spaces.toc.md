@@ -23,7 +23,7 @@
 - [Summary on storage spaces](#summary-on-storage-spaces)
 - [Monitoring and Usage](#monitoring-and-usage)
    - [The df command](#the-df-command)
-- [Commands and tools](#commands-and-tools)
+- [Global data access tools](#global-data-access-tools)
    - [authentication for dCache](#authentication-for-dcache)
    - [ifdh](#ifdh)
    - [example of an ifdh copy](#example-of-an-ifdh-copy)
