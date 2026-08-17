@@ -725,7 +725,7 @@ When we are analyzing large numbers of files in a group of batch jobs, we use a 
 * [mrb reference guide (redmine)](https://cdcvs.fnal.gov/redmine/projects/mrb/wiki/MrbRefereceGuide)
 * CVMFS on DUNE wiki: [Access files in CVMFS](https://wiki.dunescience.org/wiki/DUNE_Computing/Access_files_in_CVMFS)
 
-[Ifdh_commands]: https://cdcvs.fnal.gov/redmine/projects/ifdhc/wiki/Ifdh_commands
+[Ifdh_commands]: https://github.com/fnal-fife/ifdhc/wiki/Ifdh-commands
 [xrootd-man-pages]: https://xrootd.slac.stanford.edu/docs.html
 [Understanding-storage]: https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Understanding_storage_volumes
 [useful-samweb]: https://wiki.dunescience.org/wiki/Useful_ProtoDUNE_samweb_parameters

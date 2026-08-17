@@ -1,6 +1,7 @@
 git add *.md
 git add _episodes/*.md
 git add code/*
+git add fig/Storage*.png
 #git add _episodes/01-introduction.md
 #git add _episodes/02-storage-spaces.md
 #git add _episodes/03-data-management.md
