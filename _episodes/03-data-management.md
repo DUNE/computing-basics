@@ -273,7 +273,7 @@ If you click on a dataset you can see a sample of the files inside it.
 
 
 You can find a more detailed tutorial for the dunecatalog site at:
-[Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE%20Catalog%20Presentation.pdf&version=2)
+[Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE_Catalog_User_Guide.pdf&version=3)
 
 
 
