@@ -7,9 +7,7 @@ See [DUNE Physics Datasets](https://docs.dunescience.org/cgi-bin/sso/RetrieveFil
 
 ### Fast web catalog queries
 
-You can do fast string queries based on keywords embedded in the dataset name.  
-
-Go to [dunecatalog](https://dune-tech.rice.edu/dunecatalog/) and log in with your services password.
+Go to [dunecatalog](https://dune-tech.rice.edu/dunecatalog/) and log in with your services password. This web application gives DUNE collaborators a single browser-based interface for searching, browsing, and inspecting the experiment's data. From here you can access the files in a given dataset, view file metadata, check Rucio replica information, and trace file provenance — all in the browser.
 
 Choose your apparatus (Far Detector for example), use the category key to further refine your search and then type in keywords.  Here I chose the `Far Detectors` tab and the `FD-VD` category from the pulldown menu. 
 
@@ -17,9 +15,22 @@ Choose your apparatus (Far Detector for example), use the category key to furthe
 
 If you click on a dataset you can see a sample of the files inside it. 
 
+![Fast keyword search]({{ site.baseurl }}/fig/datasetsearch.png){: .image-with-shadow }
+
+Scan the file list and click a file name — every file name is a link to that file's own detail page. There you can view the file's Rucio replica info, metadata, and provenance, with one-click copy of the Rucio replica info for use in scripts and other tools.
+NOTE: Allow pop-up windows. To retrieve the Rucio replica info you'll need to authenticate once.
+
+![Fast keyword search]({{ site.baseurl }}/fig/rucioreplicainfo.png){: .image-with-shadow }
+
+### You can use the web data catalog to do advanced searches
+
+You can run advanced searches from the Other tab in the web-based Data Catalog. This includes any MQL query with native wildcard syntax, as well as queries to the conditions DB (ProtoDUNE-HD and VD) — where you can search by run, by momentum, or by start/stop date.
+
+![Full query search]({{ site.baseurl }}/fig/otherquery.png){: .image-with-shadow }
+
 
 You can find a more detailed tutorial for the dunecatalog site at:
-[Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE%20Catalog%20Presentation.pdf&version=2)
+[Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE_Catalog_User_Guide.pdf&version=3)
 
 
 
@@ -86,9 +97,4 @@ fardet-vd:fardet-vd__full-reconstructed__v09_81_00d02__reco2_dunevd10kt_anu_1x8x
 
 
 
-### you can use the web data catalog to do advanced searches
-
-You can also do keyword/value queries like the ones above using the Other tab on the web-based Data Catalog.
-
-![Full query search]({{ site.baseurl }}/fig/otherquery.png){: .image-with-shadow }
 
