@@ -1,5 +1,5 @@
 
-DUNE Computing Tutorial Basics for DUNE - Revised 2025 edition
+DUNE Computing Tutorial Basics for DUNE - Revised 2026 edition
 ==============================================================
 
 This repository holds the source code of the webpage that is rendered [here]({{ site.baseurl }}/index.html). 
@@ -9,7 +9,7 @@ This training module is part of an initiative of the [DUNE Computing Consortium]
 
 When:
 
-2025 revisions to online version
+2026 revisions to online version
 
 Live versions are delivered 1-2 times/year but this document can also be worked through on your own. 
 

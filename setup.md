@@ -498,9 +498,10 @@ setup dunesw $DUNELAR_VERSION -q $DUNELAR_QUALIFIER
 ~~~
 {: .language-bash}
 
-2) Create working directories in the `/exp/dune/app` and `/pnfs/dune` areas (these will be explained later in the training):
+2) Create working directories in the `/exp/dune/app`, `/exp/dune/data` and `/pnfs/dune` areas (these will be explained later in the training):
 ~~~
 mkdir -p /exp/dune/app/users/${USER}
+mkdir -p /exp/dune/data/users/${USER}
 mkdir -p /pnfs/dune/scratch/users/${USER}
 mkdir -p /pnfs/dune/persistent/users/${USER}
 ~~~
@@ -532,6 +533,7 @@ source ~/dune_presetup_2025_al9.sh
 2) Create working directories in the `/exp/dune/app` and `/pnfs/dune` areas (these will be explained later in the training):
 ~~~
 mkdir -p /exp/dune/app/users/${USER}
+mkdir -p /exp/dune/data/users/${USER}
 mkdir -p /pnfs/dune/scratch/users/${USER}
 mkdir -p /pnfs/dune/persistent/users/${USER}
 ~~~
