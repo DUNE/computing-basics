@@ -8,13 +8,13 @@ country: "us"
 language: "en"
 latitude: "45"
 longitude: "-1"
-humandate: "2025"
+humandate: "2026"
 humantime: "asynchronous"
-startdate: "2025-09-08"
-enddate: "2025-09-12"
-instructor: ["Heidi Schellman","Dave Demuth","Michael Kirby","Steve Timm","Tom Junk","Ken Herner","Nilay Bostan"]
+startdate: "2026-09-10"
+enddate: "2026-09-10"
+instructor: ["Heidi Schellman","Dave Demuth","Michael Kirby","Steve Timm","Tom Junk","Ken Herner","Nilay Bostan","Gavin S. Davies"]
 helper: ["mentor1", "mentor2"]
-email: ["schellmh@oregonstate.edu","dmdemuth@gmail.com","mkirby@bnl.gov","timm@fnal.gov","junk@fnal.gov","herner@fnal.gov"]
+email: ["schellmh@oregonstate.edu","dmdemuth@gmail.com","mkirby@bnl.gov","timm@fnal.gov","junk@fnal.gov","herner@fnal.gov","gavin.s.davies@gmail.com"]
 collaborative_notes: "2024-05-24-dune"
 eventbrite:
 ---

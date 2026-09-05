@@ -463,44 +463,13 @@ Here is how you set up basic DUNE software on Alma 9. We are using the super-com
 We don't have a full ability to rebuild DUNE Software packages such as LArSoft using Spack yet.  We will be adding more functionality soon.  Unless you are doing simple ROOT based analysis you will need to use the [SL7 Container](#sl7-version) method for now. 
 
 
-> ## Optional - make an alias!
-> > ## See how you can make an alias so you don't have to type everything
-> > You can store this in your (minimal) .bashrc or .profile if you want this alias to be available in all sessions. The alias will be defined but not executed. Only if you type the command `dune_setup7` yourself.> Not familiar with aliases? Read below.
-> > 
-> > To create unix custom commands for yourself, we use 'aliases':
-> > ~~~
-> > alias my_custom_commmand='the_long_command_you_want_to_alias_in_a_shorter_custom_name'
-> > ~~~
-> > {: .source}
-> > For DUNE SL7 setup, you can type for instance:
-> > ~~~
-> > alias dune_setup7='source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh'
-> > ~~~
-> > {: .language-bash}
-> > or 
-> > ~~~
-> > alias dune_setup9='source /cvmfs/larsoft.opensciencegrid.org/spack-packages/setup-env.sh'
-> > ~~~
-> > {: .language-bash}
-> > 
-> > So next time you type:
-> > ~~~
-> > dune_setup9
-> > ~~~
-> > {: .source}
-> > Your terminal will execute the long command. This will work for your current session (if you disconnect, the alias won't exist anymore). 
-> {: .solution}
-{: .callout}
-
-
-
 
 
 
 
 ## Step 5. Exercises
 
-### Exercise! (For SL7 - it's easy)
+### Exercise - SL7 version 
 This exercise will help organizers see if you reached this step or need help.
 
 1) Start in your home area `cd ~` on the DUNE machine (normally CERN or FNAL) and create the file ```dune_presetup_2025_sl7.sh```.  
@@ -510,7 +479,7 @@ Launch the *Apptainer* as described above in the [SL7 version](#sl7-version)
 
 Write in it the following:
 ~~~
-export DUNELAR_VERSION=v10_17_00d00
+export DUNELAR_VERSION=v10_22_00d01
 export DUNELAR_QUALIFIER=e26:prof
 
 export UPS_OVERRIDE="-H Linux64bit+3.10-2.17"
@@ -544,7 +513,7 @@ date >& /exp/dune/app/users/${USER}/my_first_login.txt
 {: .language-bash}
 4) With the above, we will check if you reach this point. However we want to tailor this tutorial to your preferences as much as possible. We will let you decide which animals you would like to see in future material, between: "puppy", "cat", "squirrel", "sloth", "unicorn pegasus llama" (or "prefer not to say" of course). Write your desired option on the second line of the file you just created above.
 
-### Exercise! (For AL9 - it's easy)
+### Exercise AL9 version 
 This exercise will help organizers see if you reached this step or need help.
 
 1) Start in your home area `cd ~` on the DUNE machine (normally CERN or FNAL) and create the file ```dune_presetup_2025_al9.sh```.  
@@ -788,6 +757,39 @@ If you are experiencing issues, please contact us as soon as possible. Be sure t
 > ## Issues
 > If you have issues here, please go to the [#computing-training-basics](https://dunescience.slack.com/archives/C02TJDHUQPR) Slack channel to get support. Please note that you are on a CERN machine in your message. Thanks!
 {: .discussion}
+
+> ## Optional - make an alias!
+> > ## See how you can make an alias so you don't have to type everything
+> > You can store this in your (minimal) .bashrc or .profile if you want this alias to be available in all sessions. The alias will be defined but not executed. Only if you type the command `dune_setup7` yourself.> Not familiar with aliases? Read below.
+> > 
+> > To create unix custom commands for yourself, we use 'aliases':
+> > ~~~
+> > alias my_custom_commmand='the_long_command_you_want_to_alias_in_a_shorter_custom_name'
+> > ~~~
+> > {: .source}
+> > For DUNE SL7 setup, you can type for instance:
+> > ~~~
+> > alias dune_setup7='source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh'
+> > ~~~
+> > {: .language-bash}
+> > or 
+> > ~~~
+> > alias dune_setup9='source /cvmfs/larsoft.opensciencegrid.org/spack-packages/setup-env.sh'
+> > ~~~
+> > {: .language-bash}
+> > 
+> > So next time you type:
+> > ~~~
+> > dune_setup9
+> > ~~~
+> > {: .source}
+> > Your terminal will execute the long command. This will work for your current session (if you disconnect, the alias won't exist anymore). 
+> {: .solution}
+{: .callout}
+
+
+
+
 
 ## Useful Links
    

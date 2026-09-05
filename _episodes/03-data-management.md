@@ -62,7 +62,9 @@ DUNE data is stored around the world and you cannot directly log into most of th
 There are currently > 27M files cataloged in metacat with a total size of > 48 PB.
    
 
-Key idea:  
+Key ideas:  
+
+- Official datasets are groups of files already defined for you.  Ask your physics group for pointers.  Otherwise you can browse the data yourself using the generic `metacat` and `rucio` tools. 
 
 - `metacat` tells us *what* the file is and *how* it was made, with what software.  
 - `rucio` tells us *where* the file is, and gets it and keeps it where it is supposed to be.
@@ -75,7 +77,6 @@ If you want to access data, this module will help you find and examine it.
 
 If you want to process data using the full power of DUNE computing, you should talk to the data management group about methods for cataloging any data files you plan to produce.  This will allow you to use DUNE's collaborative storage capabilities to preserve and share your work with others and will be required for publication of results. 
 
-<!-- FIXME - explain the 2 layers, metacat and rucio -->
  
 ## How to find and access official data
 
@@ -123,37 +124,28 @@ For processed data you also need to know about
 
  Here is an example of a metacat query that gets you raw files from a recent 'hd-protodune' cosmics run.
 
-Note: there are example setups that do a full setup in the extras folder:
 
-- [SL7 setup]({{ site.baseurl }}/sl7_setup)
-- [AL9 setup]({{ site.baseurl }}/al9_setup)
-
-First get metacat if you have not already done so
+First set up metacat if you have not already done so
 
 
-> ## SL7 
-> 
-> Make certain you have dune software  set up
-> [SL7 setup]({{ site.baseurl }}/sl7_setup)
-{: .callout}
+> ## Choose your OS
+>
+> > ## SL7
+> > Make certain you have dune software set up
+> > [SL7 setup]({{ site.baseurl }}/sl7_setup)
+> > ~~~
+> > setup metacat
+> > setup rucio
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+> > ## AL9
+> > Make certain you have AL9 set up
+> > [AL9 setup]({{ site.baseurl }}/al9_setup)
+> > `metacat` and `rucio` are part of the default spack setup
+> {: .solution}
+{: .challenge}
 
-> ## AL9
-> Make certain you have AL9 set up
-> [AL9 setup]({{ site.baseurl }}/al9_setup)
-{: .callout}
-
-
-<!-- > ## For both
-> ~~~
-> metacat auth login -m password $USER  # use your services password to authenticate
-> ~~~
-> {: .language-bash}
-{: .callout}
-
->### Note: other means of authentication
->Check out the [metacat documentation](https://metacat.readthedocs.io/en/latest/ui.html#user-authentication) for 
- token authentication. 
-{: .callout} -->
 
 ### then do queries to find particular groups of files
 
@@ -251,102 +243,6 @@ Total size:   17553648200600 (17.554 TB)
 {: .output}
 
 
-<!-- To look at all the files in that run you need to use XRootD - **DO NOT TRY TO COPY 4 TB to your local area!!!*** -->
-
-<!-- ## Official datasets <a name="Official_Datasets"></a>
-
-The production group make official datasets which are sets of files which share important characteristics such as experiment, data_tier, data_stream, processing version and processing configuration. 
-
-See [DUNE Physics Datasets](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=29787&filename=DUNEdataset_v1.pdf) for a detailed description. 
-
-### Fast web catalog queries
-
-You can do fast string queries based on keywords embedded in the dataset name.  
-
-Go to [dunecatalog](https://dune-tech.rice.edu/dunecatalog/) and log in with your services password.
-
-Choose your apparatus (Far Detector for example), use the category key to further refine your search and then type in keywords.  Here I chose the `Far Detectors` tab and the `FD-VD` category from the pulldown menu. 
-
-![Fast keyword search](../fig/keywordquery.png){: .image-with-shadow }
-
-If you click on a dataset you can see a sample of the files inside it. 
-
-
-You can find a more detailed tutorial for the dunecatalog site at:
-[Dune Catalog Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=33738&filename=DUNE_Catalog_User_Guide.pdf&version=3)
-
-
-
-### Command line tools and advanced queries 
-
-You can also explore and find the right dataset on the command line by using metacat dataset keys:
-
-First you need to know your namespace and then explore within it.
-
-~~~
-metacat namespace list # find likely namespaces
-~~~
-{: .language-bash}
-
-There are official looking ones like `hd-protodune-det-reco` and ones for users doing production testing like `schellma`.  The default for general use is `usertests`
-
-Creation of namespaces by non-privileged users is currently disabled. A tool is in progress which will automatically make one namespace for each user
-
-### metacat web interface
-
-Metacat also has a web interface that is useful in exploring file parentage [metacat gui](https://metacat.fnal.gov:9443/dune_meta_prod/app/gui)
-
-### Example of finding reconstructed Monte Carlo
-
-Let's look for some reconstructed Monte Carlo from the VD far detector. 
-
-~~~
-metacat query "datasets matching fardet-vd:*official having core.data_tier=full-reconstructed"
-~~~
-{: .language-bash}
-
-Lots of output ... looks like there are 2 types of official ones - let's get "v2"
-
-~~~
-metacat query "datasets matching fardet-vd:*v2_official having core.data_tier=full-reconstructed"
-~~~
-{: .language-bash}
-
-and there are then several different generators. Let's explore reconstructed simulation of the vertical drift far detector. 
-
-~~~
-metacat query "datasets matching fardet-vd:*v2_official having core.data_tier=full-reconstructed and dune_mc.gen_fcl_filename=prodgenie_nu_numu2nue_nue2nutau_dunevd10kt_1x8x6_3view_30deg.fcl"
-~~~
-{: .language-bash}
-
-Ok, found the official neutrino beam dataset:
-
-~~~
-fardet-vd:fardet-vd__full-reconstructed__v09_81_00d02__reco2_dunevd10kt_nu_1x8x6_3view_30deg_geov3__prodgenie_nu_numu2nue_nue2nutau_dunevd10kt_1x8x6_3view_30deg__out1__v2_official
-~~~
-{: .output}
-
-  
-~~~
-metacat query "datasets matching fardet-vd:*v2_official having core.data_tier=full-reconstructed and dune_mc.gen_fcl_filename=prodgenie_anu_numu2nue_nue2nutau_dunevd10kt_1x8x6_3view_30deg.fcl"
-~~~
-
-And the anti-neutrino dataset:
-
-~~~
-fardet-vd:fardet-vd__full-reconstructed__v09_81_00d02__reco2_dunevd10kt_anu_1x8x6_3view_30deg_geov3__prodgenie_anu_numu2nue_nue2nutau_dunevd10kt_1x8x6_3view_30deg__out1__v2_official
-~~~
-{: .output}
-
-
-
-### you can use the web data catalog to do advanced searches
-
-You can also do keyword/value queries like the ones above using the Other tab on the web-based Data Catalog.
-
-![Full query search](../fig/otherquery.png){: .image-with-shadow }
- -->
-
 ### get a limited number of files in a query
 
 Batch workflows with more than 10,000 files are strongly discouraged (largely as when they fail, they fail BIG!). You can chop up larger sets by using the skip and limit fields in your query.
@@ -435,7 +331,7 @@ You can use any of those keys to refine dataset searches as we did above. You pr
 
 ### What files are in that dataset and how do I use them?
 
-You can either locate and click on a dataset in the [web data catalog](https://dune-tech.rice.edu/dunecatalog/) or use the[metacat web interface](https://metacat.fnal.gov:9443/dune_meta_prod/app/gui)  or use the command line:
+You can either locate and click on a dataset in the [web data catalog](https://dune-tech.rice.edu/dunecatalog/) or use the [metacat web interface](https://metacat.fnal.gov:9443/dune_meta_prod/app/gui)  or use the command line:
 
 ~~~
 metacat query  "files from  fardet-vd:fardet-vd__full-reconstructed__v09_81_00d02__reco2_dunevd10kt_anu_1x8x6_3view_30deg_geov3__prodgenie_anu_numu2nue_nue2nutau_dunevd10kt_1x8x6_3view_30deg__out1__v2_official ordered limit 10"
@@ -447,9 +343,6 @@ will list the first 10 files in that dataset (you probably don't want to list al
 You can also use a similar query in your batch job to get the files you want. 
 
 
-## Finding those files on disk
-
-To find your files, you need to use [Rucio](#Rucio) directly or give the [justIN](https://dunejustin.fnal.gov/docs/tutorials.dune.md) batch system your query and it will locate them for you. 
 
 
 
@@ -466,27 +359,30 @@ export SAM_EXPERIMENT=dune
 -->
 ## Getting file locations using Rucio
 
+To find the physical location of your files, you need to use [Rucio](#Rucio) directly or give the [justIN](https://dunejustin.fnal.gov/docs/tutorials.dune.md) batch system your `metacat` query and it will locate them for you. 
+
+
 ### What is Rucio? 
 <!-- <a name="Rucio"></a> -->
-Rucio is the next-generation Data Replica service and is part of DUNE's new Distributed Data Management (DDM) system that is currently in deployment. 
+`rucio` is the next-generation Data Replica service and is part of DUNE's new Distributed Data Management (DDM) system that is currently in deployment. 
 Rucio has two functions:
 1. A rule-based system to get files to Rucio Storage Elements around the world and keep them there.
 2. To return the "nearest" replica of any data file for use either in interactive or batch file use.  It is expected that most DUNE users will not be regularly using direct Rucio commands, but other wrapper scripts that calls them indirectly.
 
-As of the date of the 2025 tutorial:
-- The Rucio client is available in CVMFS and Spack
+As of the date of the 2026 tutorial:
+- The `rucio` client is available in CVMFS and Spack
 - Most DUNE users are now enabled to use it. New users may not automatically be added. 
 
-### You will need to authenticate to read files
+### Authenticate
 
-> #### For SL7 use justin to get a token
-{:.callout}
-{% include sl7_token.md %}
-<!-- {: .callout} -->
+You may need to redo this as tokens expire.  The first time it will ask you to open a web browser, authenticate and enter the long string it delivers to you. 
 
-> #### for AL9 use htgettoken to get a token
-{:.callout}
-{% include al9_token.md %}
+~~~
+justin time 
+justin get-token
+~~~
+{: .language-bash}
+
 <!-- {: .callout} -->
 
 <!-- You need to authenticate to rucio:
@@ -561,7 +457,7 @@ It will complain because you haven't loaded all the information needed to read a
 {: .callout}
 
 
-## More finding files by characteristics using metacat
+<!-- ## More finding files by characteristics using metacat
 
 There isn't always an official dataset so you can also list files directly using metacat.
 
@@ -615,7 +511,7 @@ pdsp_det_reco:np04_raw_run005141_0011_dl7_reco1_18127369_0_20210318T104844Z.root
 {: .output}
 
 
-To see the total number (and size) of files that match a certain query expression, then add the `-s` option to `metacat query`.
+To see the total number (and size) of files that match a certain query expression, then add the `-s` option to `metacat query`. -->
 
 <!---`samweb` allows you to select on a lot of parameters which are documented here:
 
@@ -625,16 +521,15 @@ To see the total number (and size) of files that match a certain query expressio
 
 -->
 
-See the metacat documentation for more information about queries.  [DataCatalogDocs][DataCatalogDocs]  and check out the glossary of common fields at: [MetaCatGlossary][MetaCatGlossary]
+<!-- See the metacat documentation for more information about queries.  [DataCatalogDocs][DataCatalogDocs]  and check out the glossary of common fields at: [MetaCatGlossary][MetaCatGlossary] -->
 
-## Accessing data for use in your analysis
-To access data without copying it, `XRootD` is the tool to use. However it will work only if the file is staged to the disk.
+> ## Reminder - Accessing data for use in your analysis, do not use NFS links
+> To access data without copying it, `XRootD` is the tool to use. However it will work only if the file is staged to the disk.
+> You can stream files worldwide if you have a DUNE VO certificate as described in the preparation part of this tutorial.
+{: .callout}
 
-You can stream files worldwide if you have a DUNE VO certificate as described in the preparation part of this tutorial.
-
-To learn more about using Rucio and Metacat to run over large data samples go here:
-
-> # Full justIN/Rucio/Metacat Tutorial
+> To learn more about using Rucio and Metacat to run over large data samples go here:
+> ## Full justIN/Rucio/Metacat Tutorial
 > The [justIN tutorial](https://dunejustin.fnal.gov/docs/tutorials.dune.md)
 >  and [justIN/Rucio/Metacat Tutorial](https://docs.dunescience.org/cgi-bin/sso/RetrieveFile?docid=30145)  
 {: .challenge}

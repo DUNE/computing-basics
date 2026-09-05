@@ -33,13 +33,11 @@ You can get spack going with our minimal implementation
 
 ~~~
 . /cvmfs/dune.opensciencegrid.org/dune-spack/spack-develop-fermi/setup-env.sh
-spack env activate dune-tutorial
+spack env activate dune-prototype
 ~~~
 {: .language-bash}
 
 This sets up the file and job management packages (metacat, rucio, justin) and a version of root that can do streaming transfers.  It is useful for end stage tuple analysis. 
-
-A full version with larsoft is in the works.
 
 You can list what is available in that environment via
 
@@ -61,7 +59,31 @@ intel-tbb-oneapi@2021.9.0  nlohmann-json@3.11.3  re2c@3.1         xxhash@0.8.3
 ~~~
 {: .output}
 
-This particular environment loads only one version of the packages.
+This particular environment loads only one version of most of the packages.
+
+### Spack commands
+
+You can find a list of common spack commands for DUNE [here](https://github.com/DUNE/FAQ/blob/main/docs/Spack.md)
+
+## There is a larsoft release in spack now
+
+~~~
+spack find dunesw
+~~~
+{: .language-bash}
+
+~~~
+-- linux-almalinux9-x86_64_v3 / %c,cxx=gcc@12.5.0 ---------------
+dunesw@10.22.00d01
+==> 1 installed package
+~~~
+{: .output}
+
+You can use it with released code and your own fcls.  To modify you need to try out the new tools described in the next section.
+
+## Tools to build code against spack releases - under development
+
+You can find tools for building/developing code [here](https://wiki.dunescience.org/wiki/Spack_Tools)
 
 ## A more flexible environment with more packages but you have to make choices of versions
 

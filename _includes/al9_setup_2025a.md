@@ -12,6 +12,11 @@ echo "load GCC so don't use system"
 echo "GCC"
 spack load gcc@12.5.0 arch=linux-almalinux9-x86_64_v2 
 
+# access some disks
+export DUNEDATA=/exp/dune/data/users/$USER
+export DUNEAPP=/exp/dune/app/users/$USER
+export PERSISTENT=/pnfs/dune/persistent/users/$USER
+export SCRATCH=/pnfs/dune/scratch/users/$USER
 ~~~
 {: .language-bash}
 
