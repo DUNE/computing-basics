@@ -117,10 +117,7 @@ The livedoc is here [livedoc](https://docs.google.com/document/d/1lFJmNGIPYaqGWQ
 
 This lesson comes with extras - go to the top of the page and click on extras to get a pulldown menu of useful items.
 
-![Extras List](../fig/extras.png){width=300px}
-
-
-
+![Extras List](../fig/extras.png){: .image-with-shadow }
 
 
 {%include links.md%} 
