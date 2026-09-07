@@ -47,6 +47,14 @@ A similar session from May 2022 was captured for your asynchronous review.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Yfa5SQlc8yM" title="DUNE Computing Tutorial Dec 2024 Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
+## People you will meet today
+
+- Heidi Schellman (Oregon State) and Dave DeMuth (Valley City State University)  the training coordinators
+- Nilay Bostan (Marmara University, Türkiye)
+- Ken Herner (FNAL) - head of US DUNE Computing Operations
+- Steve Timm (FNAL) - DUNE Data Management lead
+- Aaron Higuera (Rice) - Data Collection Manager and Production Lead
+- Gavin S. Davies (Mississippi) - DUNE Global Software Technical Lead
 
 ## Basic setup reminder
 
@@ -72,9 +80,9 @@ Here are some example scripts that do most of the setups explained in this tutor
 > if that doesn't help, use Slack to ask us about the problem - there is always a new one cropping up.
 {: .challenge} 
 
-## Instructional Crew
+<!-- ## Instructional Crew -->
 
-**Organizers:**
+<!-- **Organizers:**
 - Heidi Schellman (Oregon State University /FNAL)
 - David DeMuth (Valley City State University)
 
@@ -89,7 +97,7 @@ Here are some example scripts that do most of the setups explained in this tutor
 - Aaron Higuera (Rice University)
 - Pengfei Ding (FNAL)
 - Barnali Chowdury (ANL)
-- Nilay Bostan (University of Iowa)
+- Nilay Bostan (University of Iowa) -->
 
 ## Support
 
@@ -103,8 +111,13 @@ You should join the DUNE Slack instance and look in [#computing-training-basics]
 
 go to [https://atwork.dunescience.org/tools/](https://atwork.dunescience.org/tools/) scroll down to Slack and request an invite.  Please do not do this if you are already in DUNE Slack.
 
-The livedoc is here [livedoc](https://docs.google.com/document/d/1i7up8WZjTkOUnl5S71psNa5G3zT-g8VDyaOdINXVBvE/edit?tab=t.0)
+The livedoc is here [livedoc](https://docs.google.com/document/d/1lFJmNGIPYaqGWQxGzisxleJYUH6t8_Be20P8t4iixqk/edit?usp=sharing)
 
+## Extra bonus. 
+
+This lesson comes with extras - go to the top of the page and click on extras to get a pulldown menu of useful items.
+
+![Extras List](../fig/extras.png){width=300px}
 
 
 

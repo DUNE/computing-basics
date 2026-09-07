@@ -1,5 +1,5 @@
 ---
-title: 2025 Example AL9 setup for a new session
+title: 2026 Example AL9 setup for a new session
 permalink: al9_setup
 keypoints:
 - getting basic applications on Alma9

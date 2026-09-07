@@ -1,5 +1,5 @@
 ---
-title: 2025 Speedrun of AL9 setup and test
+title: 2026 Speedrun of AL9 setup and test
 permalink: al9_speedrun
 keypoints:
 - all in one place

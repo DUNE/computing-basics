@@ -1,5 +1,5 @@
 ---
-title: 2025 Speedrun of SL7 setup and test
+title: 2026 Speedrun of SL7 setup and test
 permalink: sl7_speedrun
 keypoints:
 - all in one place
