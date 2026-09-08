@@ -293,17 +293,19 @@ Fast access to data in dCache volumes requires authentication. See [Tokens]({{ s
 
  `ifdh` stands for Intensity Frontier Data Handling. It is a Fermilab specific tool suite that facilitates selecting the appropriate data transfer method from many possibilities while protecting shared resources from overload. You may see *ifdhc*, where *c* refers to *client*.
 
+ `ifdh` is useful if you want to make directories and write files at Fermilab. If you just want to read files, the `xroot` system (described below) works globally.
+
 <!-- > ## Note
 >  `ifdh` is much more efficient than NFS file access.  Please use it and/or `xrdcp/xrootd` when accessing remote files. 
 {: .challenge} -->
 
 ### example of an ifdh copy
 
-Here is an example of copying a file. Refer to the [Mission Setup]({{ site.baseurl }}/setup.html) for  the  `DUNELAR_VERSION`.
+Here is an example of copying a file. Refer to the [Mission Setup]({{ site.baseurl }}/setup.html) for  the setups. 
 
-For now do this in the Apptainer
 
-Do the standard [sl7 setup]({{ site.baseurl }}/sl7_setup) 
+
+Do the standard [al9 setup]({{ site.baseurl }}/al9_setup) 
 
 
 once you are set up 
@@ -325,24 +327,24 @@ Prior to attempting the first exercise, please take a look at the full list of I
 
 
 > ## Exercise 3
-> use normal `mkdir` to create a directory in your dCache scratch area (/pnfs/dune/scratch/users/${USER}/) called "DUNE_tutorial_2025" 
+> use normal `mkdir` to create a directory in your dCache scratch area (/pnfs/dune/scratch/users/${USER}/) called "DUNE_tutorial_2026" 
 > Using the `ifdh command, complete the following tasks:
 > * copy /exp/dune/app/users/${USER}/my_first_login.txt file to that directory
-> * copy the my_first_login.txt file from your dCache scratch directory (i.e. DUNE_tutorial_2024) to /dev/null
-> * remove the directory DUNE_tutorial_2025
-> * create the directory DUNE_tutorial_2025_data_file
+> * copy the my_first_login.txt file from your dCache scratch directory (i.e. DUNE_tutorial_2026) to /dev/null
+> * remove the directory DUNE_tutorial_2026
+> * create the directory DUNE_tutorial_2026_data_file
 > Note, if the destination for an ifdh cp command is a directory instead of filename with full path, you have to add the "-D" option to the command line. Also, for a directory to be deleted, it must be empty.
 > 
 > Note `ifdh` no longer has a `mkdir` command as it auto-creates directories.  In this example, we use the NFS command `mkdir` directly for clarity. 
 > 
 > > ## Answer
 > > ~~~
-> > mkdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025
-> > ifdh cp -D /exp/dune/app/users/${USER}/my_first_login.txt /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025
-> > ifdh cp /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025/my_first_login.txt /dev/null
-> > ifdh rm /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025/my_first_login.txt
-> > ifdh rmdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025
-> > mkdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2025_data_file
+> > mkdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026
+> > ifdh cp -D /exp/dune/app/users/${USER}/my_first_login.txt /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026
+> > ifdh cp /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026/my_first_login.txt /dev/null
+> > ifdh rm /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026/my_first_login.txt
+> > ifdh rmdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026
+> > mkdir /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026_data_file
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -363,22 +365,16 @@ XRootD is most suitable for read-only data access.
 
 #### a test
 
-Issue the following command. Please look at the input and output of the command, and recognize that this is a listing of /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2024. Try and understand how the translation between a NFS path and an xrootd URI could be done by hand if you needed to do so.
+Issue the following command. Please look at the input and output of the command, and recognize that this is a listing of /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026 Try and understand how the translation between a NFS path and an xrootd URI could be done by hand if you needed to do so.
 
 ~~~
 xrdfs root://fndca1.fnal.gov:1094/ ls /pnfs/fnal.gov/usr/dune/scratch/users/${USER}/
 ~~~
 {: .language-bash}
 
-Note that you can do
-~~~
-lar -c <input.fcl> <xrootd_uri> 
-~~~
-{: .language-bash}
+Note that you use the xrootd_urls to stream remote data. 
 
-<!-- FIXME - HDF5 voodoo?  -->
-
-to stream into a larsoft module configured within the fhicl file. As well, it can be implemented in standalone C++ as
+It can be implemented in standalone C++ as
 
 ~~~
 TFile * thefile = TFile::Open(<xrootd_uri>)
@@ -391,6 +387,13 @@ or PyROOT code as
 thefile = ROOT.TFile.Open(<xrootd_uri>)
 ~~~
 {: .language-python}
+
+You can even use it with larsoft
+
+~~~
+lar -c my.fcl <xrootd_uri>
+~~~
+{: .language-bash}
 
 ### What is the right xroot path - URI - for a file?
 
@@ -418,8 +421,9 @@ root://fndca1.fnal.gov:1094//pnfs/fnal.gov/usr/dune/tape_backed/dunepro/protodun
 ~~~
 {: .output}
 
-> ## Note - if you don't have pnfs2xrootd on your system
-> Copy [this]({{ site.baseurl}}/pnfs2xrootd) to your local area, make it executable and use it instead.
+> ## Note - if you don't have pnfs2xrootd on your system 
+> pnfs2xrootd is not native in al9 yet so you need to copy it over.
+> Copy [this file]({{ site.baseurl}}/pnfs2xrootd) to your local area, make it executable and use it instead.
 {: .callout}
 
 you can then 
@@ -435,12 +439,18 @@ This even works if the file is in Europe - which you cannot do with a direct /pn
 
 ~~~
 #Need to setup root executable in the environment first...
-export DUNELAR_VERSION=v10_22_00d01
-export DUNELAR_QUALIFIER=e26:prof
-export UPS_OVERRIDE="-H Linux64bit+3.10-2.17"
-source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
-setup dunesw $DUNELAR_VERSION -q $DUNELAR_QUALIFIER
-setup justin # use justin to get appropriate tokens
+    # SL7commented out
+    #export DUNELAR_VERSION=v10_22_00d01
+    #export DUNELAR_QUALIFIER=e26:prof
+    #export UPS_OVERRIDE="-H Linux64bit+3.10-2.17"
+    #source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
+    #setup dunesw $DUNELAR_VERSION -q $DUNELAR_QUALIFIER
+    #setup justin # use justin to get appropriate tokens
+
+# now do AL9
+
+. /cvmfs/dune.opensciencegrid.org/spack/setup-env.sh
+spack env activate dune-prototype
 justin time  # this will ask you to authenticate via web browser
 justin get-token # this actually gets you a token
 ~~~
