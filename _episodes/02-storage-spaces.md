@@ -70,7 +70,7 @@ Your home area is similar to the user's local hard drive but network mounted
 * network volumes are NOT safe to store certificates and tickets
 * important: users have a single home area at FNAL used for all experiments 
 * not accessible from grid worker nodes
-* not for code developement (home area is 5 GB)
+* not for code development (home area is 5 GB)
 
 #### at Fermilab
 * you need a valid Kerberos ticket in order to access files in your Home area
@@ -121,9 +121,9 @@ The following areas are dCache volumes that are grid accessible via methods such
 Whenever possible, these storage elements should be accessed via `ifdh` or `xrootd` rather than cp or scp (see next section) as the visible NFS mount points on interactive nodes are slow, unstable, and can cause the node to become unusable.
 
 - At Fermilab, an instance of dCache+CTA is used for large-scale, distributed storage with capacity for more than 100 PB of storage and O(10000) connections. 
-- At CERN, the analog is EOS+CASTOR
+- At CERN, the analog is EOS+CTA
 
-At Fermilab (CTA) and CERN (CASTOR), some files are backed up to tape and may not be immediately accessible.
+At Fermilab (CTA) and CERN (CTA), some files are backed up to tape and may not be immediately accessible.
 
 DUNE also maintains disk copies of most recent files across many sites worldwide.
 
@@ -143,7 +143,7 @@ Here are the different dCache volumes:
 
 #### Scratch dCache
 `/pnfs/dune/scratch/` is a large volume shared across all experiments. When a new file is written to scratch space, old files are removed in order to make room for the newer file. Removal is based on Least Recently Utilized (LRU) policy, and performed by an automated daemon.
-
+In DUNE the most common use of this volume is for writing output from grid batch jobs.
 
 #### Tape-backed dCache
 Tape-backed disk based storage areas that have their contents mirrored to permanent storage on CTA tape.  
@@ -153,7 +153,7 @@ Files are not available for immediate read on disk, but needs to be 'staged' fro
 <!-- **Resilient dCache**: NOTE: DIRECT USAGE is being phased out and if the Rapid Code Distribution function in POMS/jobsub does not work for you, consult with the FIFE team for a solution (handles custom user code for their grid jobs, often in the form of a tarball. Inappropriate to store any other files here (NO DATA OR NTUPLES)). -->
 
 #### Rucio Storage Elements
- Rucio Storage Elements (or RSEs) are storage elements provided by collaborating institution for official DUNE datasets.  Data stored in DUNE RSE's must be fully cataloged in the [metacat][metacat] catalog and is managed by the DUNE data management team. This is where you find the official data samples.
+ Rucio Storage Elements (or RSEs) are storage elements provided by collaborating institutions for official DUNE datasets.  Data stored in DUNE RSE's must be fully cataloged in the [metacat][metacat] catalog and is managed by the DUNE data management team. This is where you find the official data samples.
 
  See the [data management]({{ site.baseurl }}/03-data-management) lesson for much more information about using the `rucio` system to find official data.
 
@@ -220,7 +220,7 @@ Full documentation: [Understanding Storage Volumes](https://cdcvs.fnal.gov/redmi
 |-------------+------------------+----------+-------------+----------------+------------+--------------+-----------|
 |    | Quota/Space | Retention Policy | Tape Backed? | Retention Lifetime on disk |	Use for	| Path | Grid Accessible |
 |-------------+------------------+----------+-------------+----------------+------------+--------------+-----------|
-| Home Area (NFS mount)	| Yes (~10 GB) | Centrally Managed by CCD | No | Until manually deleted | Storing global environment scripts (All FNAL Exp) | /nashome/\<letter\>/\<uid\>| No |
+| Home Area (NFS mount)	| Yes (~10 GB) | Centrally Managed by ITD | No | Until manually deleted | Storing global environment scripts (All FNAL Exp) | /nashome/\<letter\>/\<uid\>| No |
 |-------------+------------------+----------+-------------+----------------+------------+--------------+-----------|
 | NAS Data | Yes (~1 TB)/ 62 TB total | Managed by Experiment | No | Until manually deleted | Storing final analysis samples | /exp/dune/data | No |
 |-------------+------------------+----------+-------------+----------------+------------+--------------+-----------|
@@ -368,7 +368,7 @@ XRootD is most suitable for read-only data access.
 Issue the following command. Please look at the input and output of the command, and recognize that this is a listing of /pnfs/dune/scratch/users/${USER}/DUNE_tutorial_2026 Try and understand how the translation between a NFS path and an xrootd URI could be done by hand if you needed to do so.
 
 ~~~
-xrdfs root://fndca1.fnal.gov:1094/ ls /pnfs/fnal.gov/usr/dune/scratch/users/${USER}/
+xrdfs root://fndcadoor.fnal.gov:1094/ ls /pnfs/fnal.gov/usr/dune/scratch/users/${USER}/
 ~~~
 {: .language-bash}
 
@@ -417,7 +417,7 @@ pnfs2xrootd /pnfs/dune/tape_backed/dunepro/protodune-sp/reco-recalibrated/2021/d
 will return the correct xrootd URI: 
 
 ~~~
-root://fndca1.fnal.gov:1094//pnfs/fnal.gov/usr/dune/tape_backed/dunepro/protodune-sp/reco-recalibrated/2021/detector/physics/PDSPProd4/00/00/51/41/np04_raw_run005141_0003_dl9_reco1_18127219_0_20210318T104440Z_reco2_51835174_0_20211231T143346Z.root
+root://fndcadoor.fnal.gov:1094//pnfs/fnal.gov/usr/dune/tape_backed/dunepro/protodune-sp/reco-recalibrated/2021/detector/physics/PDSPProd4/00/00/51/41/np04_raw_run005141_0003_dl9_reco1_18127219_0_20210318T104440Z_reco2_51835174_0_20211231T143346Z.root
 ~~~
 {: .output}
 
@@ -435,7 +435,7 @@ root -l <that long root: path>
 
 to open the root file.  
 
-This even works if the file is in Europe - which you cannot do with a direct /pnfs! (NOTE! not all storage elements accept tokens so this may not work for all files)
+This even works if the file is in Europe - which you cannot do with a direct /pnfs! (NOTE! when using tokens, if root:// doesn't work, try roots:// this doesn't work with the root command yet but it will shortly.)
 
 ~~~
 #Need to setup root executable in the environment first...
