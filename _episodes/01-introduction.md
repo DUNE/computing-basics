@@ -56,6 +56,8 @@ A similar session from May 2022 was captured for your asynchronous review.
 - Aaron Higuera (Rice) - Data Collection Manager and Production Lead
 - Gavin S. Davies (Mississippi) - DUNE Global Software Technical Lead
 
+[slides from Dave DeMuth](https://docs.google.com/presentation/d/1h9T9U2wYeICoCtuXq8ol7tAUohyKMRUhmOQsViqZ3PI/edit?usp=sharing)
+
 ## Basic setup reminder
 
 You should have gone through the [setup sequence]({{ site.baseurl }}/setup)
@@ -64,10 +66,14 @@ As a reminder you need to choose between running on sl7 in a container or al9.  
 
 You also need to be starting in a clean terminal session.  We recommend not having a `.profile` or `.login` at all and deliberately creating  setup scripts that you source whenever you start using DUNE code. 
 
+If you did the setup you made one of these in your home area.
+
 ~~~ 
-source mysetup7.sh
+source dune_presetup_2026_al9.sh 
+# We just renamed these so you may still have dune_presetup_2025_al9.sh
 ~~~
 {: .language-bash}
+
 
 Here are some example scripts that do most of the setups explained in this tutorial.  You need to store these in your home area, source them every time you log in, and possibly update them as code versions evolve. 
 

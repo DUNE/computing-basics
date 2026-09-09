@@ -2,7 +2,7 @@
 # find a spack environment and set it up
 # setup spack   
 
-# this is for spack v1.2.0
+# this is for spack v1.2.2
 echo "setup-prototype.sh"
 . /cvmfs/dune.opensciencegrid.org/spack/setup-env.sh
 spack env activate dune-prototype
@@ -10,7 +10,7 @@ echo "Activated dune-prototype"
 
 echo "load GCC so don't use system"
 echo "GCC"
-spack load gcc@12.5.0 arch=linux-almalinux9-x86_64_v3 
+spack load gcc@12.5.0 arch=linux-almalinux9-x86_64_v2 # need v2 for very old cpu
 
 # access some disks
 export DUNEDATA=/exp/dune/data/users/$USER

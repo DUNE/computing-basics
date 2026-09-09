@@ -362,14 +362,16 @@ source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 ~~~
 {: .language-bash}
 
-<!-- {% include sl7_setup_2025.md %} -->
-
 You should see in your terminal the following output:
 ~~~
 Setting up larsoft UPS area... /cvmfs/larsoft.opensciencegrid.org/products/
 Setting up DUNE UPS area... /cvmfs/dune.opensciencegrid.org/products/dune/
 ~~~
 {: .output}
+
+{% include sl7_setup_2025.md %}
+
+
 
 
 > #### See if ROOT works
@@ -391,8 +393,7 @@ We haven't covered batch submission yet but ....
 > ## Note: You cannot submit basic grid jobs from the Container
 > You cannot submit jobsub jobs from the Container - you need to open a separate window. In that window do the minimal [Alma9](#alma9-version) setup below and submit your jobs from that window. 
 >
->You may need to print your submit command to the screen or a file to do so if your submission is done from a script running on SL7.
-
+> You may need to print your submit command to the screen or a file to do so if your submission is done from a script running on SL7.
 {: .callout} 
 
 
@@ -419,7 +420,7 @@ You cannot submit jobs from the Container - you need to open a separate window, 
           ## 4.2 Setting up DUNE software - Alma9 version
 -->
 
-We are moving to the Alma9 version of unix.  Not all DUNE code has been ported yet but if you are doing basic root analysis work, try it out. 
+We are moving to the Alma9 version of unix.  Not all DUNE code has been ported yet but if you are doing basic root analysis work or not rebuilding LArSoft modules, try it out. 
 
 Alma9 is the operating system you get when you log onto fnal unix or lxplus at CERN.
 
@@ -460,7 +461,7 @@ Here is how you set up basic DUNE software on Alma 9. We are using the super-com
 
 ### Alma9 Caveats
 
-We don't have a full ability to rebuild DUNE Software packages such as LArSoft using Spack yet.  We will be adding more functionality soon.  Unless you are doing simple ROOT based analysis you will need to use the [SL7 Container](#sl7-version) method for now. 
+We don't have a full ability to rebuild DUNE Software packages such as LArSoft using Spack yet.  We will be adding more functionality soon. You can run LArSoft code but if you are building code you need to use the [SL7 Container](#sl7-version) method for now. 
 
 
 
@@ -469,10 +470,10 @@ We don't have a full ability to rebuild DUNE Software packages such as LArSoft u
 
 ## Step 5. Exercises
 
-### Exercise - SL7 version 
+<!-- ### Exercise - SL7 version 
 This exercise will help organizers see if you reached this step or need help.
 
-1) Start in your home area `cd ~` on the DUNE machine (normally CERN or FNAL) and create the file ```dune_presetup_2025_sl7.sh```.  
+1) Start in your home area `cd ~` on the DUNE machine (normally CERN or FNAL) and create the file ```dune_presetup_2026_sl7.sh```.  
 
 
 Launch the *Apptainer* as described above in the [SL7 version](#sl7-version) 
@@ -488,7 +489,7 @@ alias dune_setup7='source /cvmfs/dune.opensciencegrid.org/products/dune/setup_du
 {: .source}
 When you start the training, you will have to source this file:
 ~~~
-source ~/dune_presetup_2025_sl7.sh
+source ~/dune_presetup_2026_sl7.sh
 ~~~
 {: .language-bash}
 Then, to setup DUNE, use the created alias:
@@ -512,7 +513,7 @@ mkdir -p /pnfs/dune/persistent/users/${USER}
 date >& /exp/dune/app/users/${USER}/my_first_login.txt
 ~~~
 {: .language-bash}
-4) With the above, we will check if you reach this point. However we want to tailor this tutorial to your preferences as much as possible. We will let you decide which animals you would like to see in future material, between: "puppy", "cat", "squirrel", "sloth", "unicorn pegasus llama" (or "prefer not to say" of course). Write your desired option on the second line of the file you just created above.
+4) With the above, we will check if you reach this point. However we want to tailor this tutorial to your preferences as much as possible. We will let you decide which animals you would like to see in future material, between: "puppy", "cat", "squirrel", "sloth", "unicorn pegasus llama" (or "prefer not to say" of course). Write your desired option on the second line of the file you just created above. -->
 
 ### Exercise AL9 version 
 This exercise will help organizers see if you reached this step or need help.
